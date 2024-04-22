@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { tileSquare } from "types";
 
+import { NextNumberButton } from "components/Buttons";
+import { CurrentNumber } from "components/CurrentNumber";
 import { Targets } from "components/Targets";
 
 import { Board } from "../Board";
@@ -42,18 +44,14 @@ export const App: React.FC = () => {
 
     return (
         <div className={styles.gameWrapper}>
-            <div className={styles.infoWrapper}>
-                <div className={styles.currentTile}>
-                    {currentTile.char} {currentTile.id}
-                </div>
-                <button className={styles.nextButton} onClick={getNextTile}>
-                    nästa
-                </button>
+            <div className={styles.panel}>
+                <CurrentNumber char={currentTile.char} num={currentTile.id} />
+                <NextNumberButton buttonText="NÄSTA NUMMER" onClick={getNextTile} />
             </div>
             <Board tiles={tiles} />
-            <div>
+            <div className={styles.panel}>
                 <Targets />
-                <button onClick={clearGame}>nytt spel</button>
+                <NextNumberButton buttonText="NYTT SPEL" onClick={clearGame} />
             </div>
         </div>
     );

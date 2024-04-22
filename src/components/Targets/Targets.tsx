@@ -4,7 +4,7 @@ export const Targets: React.FC = () => {
     return (
         <div>
             <div>
-                <input type="checkbox" id="one" name="one" />
+                <input type="checkbox" id="one" name="one" checked={false} />
                 <label htmlFor="one">En rad</label>
             </div>
             <div>

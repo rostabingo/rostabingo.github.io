@@ -6,6 +6,7 @@ import * as styles from "./Tile.module.scss";
 type TileProps = {
     value: number;
     taken: boolean;
+    show?: boolean;
 };
 
 export const Tile: React.FC<TileProps> = (props) => {

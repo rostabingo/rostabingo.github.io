@@ -4,28 +4,23 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
+    height: 96vh;
+    width: 99vw;
 }
 
-.infoWrapper {
+.panel {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 8rem;
-}
-
-.currentTile {
-    border: 2px solid black;
-    height: 10rem;
-    width: 100%;
-    font-size: xxx-large;
-    align-content: center;
-    text-align: center;
+    width: 15%;
+    height: 100%;
 }
 
 .nextButton {
-    height: 5rem;
-    width: 8rem;
+    height: 12%;
+    width: 100%;
     background-color: greenyellow;
+    font-size: x-large;
 }
