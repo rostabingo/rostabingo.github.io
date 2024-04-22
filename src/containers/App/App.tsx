@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { tileSquare } from "types";
 
+import { Targets } from "components/Targets";
+
 import { Board } from "../Board";
 
 import * as styles from "./App.module.scss";
@@ -28,20 +30,30 @@ export const App: React.FC = () => {
             );
         }
     };
+
+    const clearGame = () => {
+        setTiles((prevState) =>
+            prevState.map((tile) => {
+                return { ...tile, state: false };
+            })
+        );
+        setCurrentTile({ id: 0, char: "", state: false });
+    };
+
     return (
-        <div className={styles.wrapper}>
-            <div>
-                <div>
+        <div className={styles.gameWrapper}>
+            <div className={styles.infoWrapper}>
+                <div className={styles.currentTile}>
                     {currentTile.char} {currentTile.id}
                 </div>
-                <button onClick={getNextTile}>nästa</button>
+                <button className={styles.nextButton} onClick={getNextTile}>
+                    nästa
+                </button>
             </div>
             <Board tiles={tiles} />
             <div>
-                <div>en rad</div>
-                <div>två rader</div>
-                <div>hela brickan</div>
-                <button>nytt spel</button>
+                <Targets />
+                <button onClick={clearGame}>nytt spel</button>
             </div>
         </div>
     );
