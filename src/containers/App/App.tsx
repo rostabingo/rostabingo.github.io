@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { gameModeAtom } from "Atoms/Atoms";
+import { useSetAtom } from "jotai";
 import { tileSquare } from "types";
 
-import { NextNumberButton } from "components/Buttons";
+import { Button } from "components/Button";
 import { CurrentNumber } from "components/CurrentNumber";
 import { Targets } from "components/Targets";
 
@@ -12,6 +14,7 @@ import * as styles from "./App.module.scss";
 export const App: React.FC = () => {
     const { tiles, setTiles } = useTiles();
     const [currentTile, setCurrentTile] = useState<tileSquare>({ id: 0, char: "", state: false });
+    const clearTarget = useSetAtom(gameModeAtom);
 
     const getNextTile = () => {
         const getRandom = (tiles: tileSquare[]): tileSquare => {
@@ -40,18 +43,19 @@ export const App: React.FC = () => {
             })
         );
         setCurrentTile({ id: 0, char: "", state: false });
+        clearTarget(null);
     };
 
     return (
         <div className={styles.gameWrapper}>
             <div className={styles.panel}>
                 <CurrentNumber char={currentTile.char} num={currentTile.id} />
-                <NextNumberButton buttonText="NÄSTA NUMMER" onClick={getNextTile} />
+                <Button buttonText="NÄSTA NUMMER" onClick={getNextTile} buttonType={"nextNumber"} />
             </div>
             <Board tiles={tiles} />
             <div className={styles.panel}>
                 <Targets />
-                <NextNumberButton buttonText="NYTT SPEL" onClick={clearGame} />
+                <Button buttonText="NYTT SPEL" onClick={clearGame} buttonType={"newGame"} />
             </div>
         </div>
     );

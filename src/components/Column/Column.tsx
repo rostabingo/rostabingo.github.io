@@ -14,9 +14,11 @@ export const Column: React.FC<ColumnProps> = (props) => {
     return (
         <div className={styles.column}>
             <h1>{props.letter}</h1>
-            {props.tiles.map((tile) => (
-                <Tile value={tile.id} taken={tile.state} />
-            ))}
+            <div className={styles.innerWrapper}>
+                {props.tiles.map((tile) => (
+                    <Tile value={tile.id} taken={tile.state} key={tile.char + " " + tile.id} />
+                ))}
+            </div>
         </div>
     );
 };
