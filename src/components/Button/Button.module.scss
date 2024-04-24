@@ -1,10 +1,15 @@
 .button {
     height: 12%;
     width: 100%;
-    background-color: greenyellow;
     font-size: x-large;
 }
 
+.newGame {
+    @extend .button;
+    background-color: rgb(210, 124, 124);
+}
+
 .nextNumber {
+    @extend .button;
     background-color: greenyellow;
 }

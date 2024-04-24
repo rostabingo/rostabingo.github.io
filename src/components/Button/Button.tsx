@@ -1,17 +1,17 @@
 import React from "react";
-import classNames from "classnames";
 
 import * as styles from "./Button.module.scss";
 
 type ButtonProps = {
     onClick: () => void;
     buttonText: string;
-    buttonType: "newGame" | "nextNumber";
+    variant: "newGame" | "nextNumber";
 };
 
 export const Button: React.FC<ButtonProps> = (props) => {
+    const buttonStyle = props.variant === "newGame" ? styles.newGame : styles.nextNumber;
     return (
-        <button className={classNames(styles.button, "." + props.buttonType)} onClick={props.onClick}>
+        <button className={buttonStyle} onClick={props.onClick}>
             {props.buttonText}
         </button>
     );

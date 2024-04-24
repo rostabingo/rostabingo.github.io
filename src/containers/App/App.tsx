@@ -43,19 +43,19 @@ export const App: React.FC = () => {
             })
         );
         setCurrentTile({ id: 0, char: "", state: false });
-        clearTarget(null);
+        clearTarget(1);
     };
 
     return (
         <div className={styles.gameWrapper}>
-            <div className={styles.panel}>
+            <div className={styles.panelRight}>
                 <CurrentNumber char={currentTile.char} num={currentTile.id} />
-                <Button buttonText="NÄSTA NUMMER" onClick={getNextTile} buttonType={"nextNumber"} />
+                <Button buttonText="NÄSTA NUMMER" onClick={getNextTile} variant={"nextNumber"} />
             </div>
             <Board tiles={tiles} />
-            <div className={styles.panel}>
+            <div className={styles.panelLeft}>
                 <Targets />
-                <Button buttonText="NYTT SPEL" onClick={clearGame} buttonType={"newGame"} />
+                <Button buttonText="NYTT SPEL" onClick={clearGame} variant={"newGame"} />
             </div>
         </div>
     );

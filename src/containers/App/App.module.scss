@@ -11,16 +11,18 @@
 .panel {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 10px;
     width: 15%;
     height: 100%;
 }
 
-.nextButton {
-    height: 12%;
-    width: 100%;
-    background-color: greenyellow;
-    font-size: x-large;
+.panelRight {
+    @extend .panel;
+    justify-content: center;
+    gap: 10px;
+}
+
+.panelLeft {
+    @extend .panel;
+    justify-content: space-between;
 }
