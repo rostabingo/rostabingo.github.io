@@ -7,6 +7,8 @@ import { Button } from "components/Button";
 import { CurrentNumber } from "components/CurrentNumber";
 import { Targets } from "components/Targets";
 
+import "../../global.module.scss";
+
 import { Board } from "../Board";
 
 import * as styles from "./App.module.scss";

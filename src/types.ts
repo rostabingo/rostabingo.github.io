@@ -3,5 +3,3 @@ export type tileSquare = {
     char: string;
     state: boolean;
 };
-
-export type gameMode = "one" | "two" | "all";
